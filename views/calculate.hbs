@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />
+  <link rel="stylesheet" href="/css/style.css">
+  <title>The Window Project</title>
+</head>
+
+<body>
+  {{>nav}}
+  <div class="wrapper">
+    <div class="side-bar">
+      <div class="fixed-sidebar">
+        <h3 class="calc-options-title">calculator options</h3>
+        <a href="#form">Heat Loss Per Hour From Windows</a>
+        <a href="#window-form">New Window Payback Period</a>
+        <a href="#full-season-form">Window Heat Loss Full Season</a>
+      </div>
+    </div>
+    <div class="calc-body">
+      <div class="calc-container">
+        <h2 id="calc-title">Heat Loss Calculator</h2>
+        <form id="form">
+          <div class="form-control">
+            <label id="sqft_label">Total Sqft Of Windows Including Frame</label>
+            <input type="text" id="sqft" placeholder="Total Sqft Of Windows">
+            <small>Error Message</small>
+          </div>
+          <div class="form-control">
+            <label id=ufactor_label>U Factor (if not sure 0.5=good 1.25=bad)</label>
+            <input type="text" id="ufactor" placeholder="U Factor">
+            <small>Error Message</small>
+          </div>
+          <div class="form-control">
+            <label id="temp_label">Difference Between Inside And Outside Temp</label>
+            <input type="text" id="temp" placeholder="Temperature Difference">
+            <small>Error Message</small>
+          </div>
+          <div class="form-control">
+            <label id="kwh_label">Electricity Rate</label>
+            <input type="text" id="kwh" placeholder="Kwh">
+            <small>Error Message</small>
+          </div>
+          <div class="results_dom">
+            <p id="results">Results:</p>
+          </div>
+          <div class="btn-container">
+            <button class="calc-btn" id='calc-btn'>Submit</button>
+          </div>
+        </form>
+      </div>
+      <div class="calc-container">
+        <h2 id="calc-title">New Windows Payback Calculator</h2>
+        <form id="window_form">
+          <div class="form-control">
+            <label id="new_win_cost_label">Total Cost of New Windows</label>
+            <input type="text" id="new_win_cost_label" placeholder="average is $60 per sqft including frame">
+            <small>Error Message</small>
+          </div>
+          <div class="form-control">
+            <label id="ufactor_label">U Factor New Windows</label>
+            <input type="text" id="new_win_ufactor" value=".30">
+            <small>Error Message</small>
+          </div>
+          <div class="form-control">
+            <label id="ufactor_label">U Factor Old Windows</label>
+            <input type="text" id="old_win_ufactor" placeholder="Old U Factor">
+            <small>Error Message</small>
+          </div>
+          <div class="form-control selectors">
+            <label id="climate_zone_label">Choose Your Climate Zone</label>
+            <select id="climate_zone">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+            </select>
+          </div>
+          <div class="results_dom">
+            <p id="new_win_results">Results:</p>
+          </div>
+          <div class="btn-container">
+            <button class="calc-btn" id='calc-btn'>Submit</button>
+          </div>
+        </form>
+      </div>
+      <div class="calc-container">
+        <h2 id="calc-title">Full Season Heat Loss Calculator</h2>
+        <form id="full_season_form">
+          <div class="form-control">
+            <label id="sqft_season_label">Square Feet of Windows</label>
+            <input type="text" id="sqft_season" placeholder="Total sqft including frame">
+            <small>Error Message</small>
+          </div>
+          <div class="form-control selectors">
+            <label id="heat_source_label">Heating Source</label>
+            <select id="heating_source">
+              <option value="elec">Electric / Baseboard</option>
+              <option value="hp">Electric / Heat Pump</option>
+              <option value="ng">Natural Gas</option>
+              <option value="oil">Oil</option>
+            </select>
+            <small>Error Message</small>
+          </div>
+          <div class="form-control selectors">
+            <label id="ufactor_label">Window Type</label>
+            <select id="window_type">
+              <option value="2.27">Old Wooden Frame Single Pane</option>
+              <option value="1.8">Old Double Pane Aluminum Frame</option>
+              <option value="1.3">Old Double Pane Vynl Frame</option>
+              <option value="1">New Double Pane Vynl Frame</option>
+              <option value="0.65">New Triple Pane Vynl Frame</option>
+            </select>
+            <small>Error Message</small>
+          </div>
+          <div class="form-control selectors">
+            <label id="city_label">Choose Nearest City</label>
+            <select id="city">
+              <option value="5500">Boston Area</option>
+              <option value="4700">New York Metro</option>
+              <option value="4400">Philadelphia</option>
+              <option value="3500">Washington DC</option>
+              <option value="3000">Virginia Beach</option>
+              <option value="4000">Louisville</option>
+              <option value="5000">Pittsurgh</option>
+              <option value="6000">Buffalo</option>
+              <option value="6250">Chicago</option>
+              <option value="4500">St Louis</option>
+              <option value="3300">Oklahoma City</option>
+              <option value="5000">Salt Lake City</option>
+              <option value="7000">Minneapolis</option>
+              <option value="5500">Denver</option>
+              <option value="4100">Seattle</option>
+              <option value="2200">Sacramento</option>
+              <option value="3500">Albuquerque</option>
+              <option value="3000">Nashville</option>
+              <option value="5500">Omaha</option>
+            </select>
+          </div>
+          <div class="results_dom">
+            <p id="full_season_results">Results:</p>
+          </div>
+          <div class="btn-container">
+            <button class="calc-btn" id='calc-btn'>Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  {{>footer}}
+</body>
+<script src="/js/calc.js"></script>
+
+</html>
