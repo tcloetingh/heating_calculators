@@ -1,13 +1,13 @@
-// Delta Temp BTU Loss Calculator Selectors
+// U Value Temp BTU Loss Calculator Selectors
 const form = document.getElementById("form");
 const sqft = document.getElementById("sqft");
 const ufactor = document.getElementById("ufactor");
 const temp = document.getElementById("temp");
 const kwh = document.getElementById("kwh");
 const degree_days = document.getElementById("dd");
-const results = document.getElementById("results");
+const uv_results = document.getElementById("uv_results");
 
-// Full Season Degree Day Calculator
+// Full Season Degree Day Calculator Selectors
 const full_season_form = document.getElementById("full_season_form");
 const sqft_season = document.getElementById("sqft_season");
 const heating_source = document.getElementById("heating_source");
@@ -25,8 +25,7 @@ const heatloss = (sqft, temp, ufactor) => {
   const elec_rate = kwh.value;
   const dollar_loss = ((btu / cop) * elec_rate).toFixed(2);
   const watts = (btu / 3.412).toFixed();
-  console.log(btu);
-  results.innerText = `${btu} BTU's of heat loss per hour requiring a constant ${watts} watts equaling $ ${dollar_loss} every hour`;
+  uv_results.innerText = `${btu} BTU's of heat loss per hour requiring a constant ${watts} watts equaling $ ${dollar_loss} every hour`;
 };
 
 // Full Season Window Heat Loss Function
@@ -58,7 +57,7 @@ const fullSeasonCalc = (sqft_season, city, window_type, heating_source) => {
   full_season_results.innerText = `Results: your windows lose $ ${results} worth of heat a year`;
 };
 
-// Submit Delta Temp Calc
+// Submit Window Heat Loss Per Hour Calc
 form.addEventListener("submit", function(e) {
   e.preventDefault();
   heatloss(sqft, temp, ufactor);

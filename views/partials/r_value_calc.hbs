@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>R Value Calc</title>
+</head>
+
+<body>
+  <div class="calc-container">
+    <h2 id="calc-title">R Value Heat Transfer Calculator</h2>
+    <form id="r_value_calc_form">
+      <div class="form-control">
+        <label id="sqft_label">Total Surface Area (Square Feet)</label>
+        <input type="text" id="r_value_sqft" placeholder="Total Area">
+        <small>Error Message</small>
+      </div>
+      <div class="form-control">
+        <label id=r_value>R Value of Material (R11 is average)</label>
+        <input type="text" id="r_val" placeholder="R Value">
+        <small>Error Message</small>
+      </div>
+      <div class="form-control">
+        <label id="temp_label">Difference Between Inside And Outside Temp</label>
+        <input type="text" id="r_value_temp" placeholder="Temperature Difference">
+        <small>Error Message</small>
+      </div>
+      <div class="results_dom">
+        <p id="rv_results">Results:</p>
+      </div>
+      <div class="btn-container">
+        <button class="calc-btn" id='calc-btn'>Submit</button>
+      </div>
+    </form>
+  </div>
+  <script>
+    const rv_sqft = document.getElementById('r_value_sqft');
+    const r_value = document.getElementById('r_val');
+    const rv_temp = document.getElementById('r_value_temp');
+    const rv_calc_form = document.getElementById('r_value_calc_form');
+    const rv_results = document.getElementById('rv_results')
+
+    const heat_transfer = (r_value, rv_sqft, rv_temp) => {
+      const sqft = rv_sqft.value;
+      const rv = r_value.value;
+      const temp = rv_temp.value;
+      const btu = (sqft * temp) / rv
+
+      rv_results.innerText = `BTU transfer rate of ${btu.toFixed(2)} per hour`
+    }
+
+
+    rv_calc_form.addEventListener('submit', (e) => {
+      heat_transfer(r_value, rv_sqft, rv_temp)
+      e.preventDefault();
+    })
+  </script>
+</body>
+
+</html>

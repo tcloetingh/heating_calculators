@@ -23,6 +23,7 @@
       </div>
     </div>
     <div class="calc-body">
+      {{>r_value_calc}}
       <div class="calc-container">
         <h2 id="calc-title">Heat Loss Calculator</h2>
         <form id="form">
@@ -47,7 +48,7 @@
             <small>Error Message</small>
           </div>
           <div class="results_dom">
-            <p id="results">Results:</p>
+            <p id="uv_results">Results:</p>
           </div>
           <div class="btn-container">
             <button class="calc-btn" id='calc-btn'>Submit</button>
@@ -80,7 +81,6 @@
               <option value="3">3</option>
               <option value="4">4</option>
               <option value="5">5</option>
-              <option value="6">6</option>
             </select>
           </div>
           <div class="results_dom">
